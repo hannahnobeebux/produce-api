@@ -1,0 +1,14 @@
+Terminal commands for dockerizing an application:
+
+docker run \            
+--detach \
+--publish 3000:3000 \
+--workdir /home/node/app \
+--volume "$(pwd):/home/node/app" \
+--network produce-api \
+--env MYSQL_DB=produce \
+--env MYSQL_USER=root \
+--env MYSQL_PASSWORD=secret \
+--env MYSQL_HOST=mysql \
+node:18-alpine \
+sh -c "npm install && npm run dev"
